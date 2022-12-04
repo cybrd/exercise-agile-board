@@ -7,7 +7,7 @@ export default () => {
             <td className="w-40 text-right p-3">Summary</td>
             <td>
               <input
-                className="w-full bg-gray-200 text-gray-700 border p-2 focus:outline-none focus:bg-white"
+                className="w-full bg-gray-200 text-gray-700 p-2 focus:outline-none focus:bg-white"
                 placeholder="Summary"
               />
             </td>
@@ -15,7 +15,7 @@ export default () => {
           <tr>
             <td className="w-40 text-right p-3">Status</td>
             <td>
-              <select className="bg-gray-200 border border-gray-200 text-gray-700 p-2 focus:outline-none focus:bg-white focus:border-gray-500">
+              <select className="bg-gray-200 text-gray-700 p-2 focus:outline-none focus:bg-white">
                 <option>Backlog</option>
                 <option>To do</option>
                 <option>In Progress</option>
@@ -27,7 +27,15 @@ export default () => {
           <tr>
             <td className="w-40 text-right p-3">Description</td>
             <td>
-              <textarea className="w-full h-40 bg-gray-200 text-gray-700 border resize-none p-2 focus:outline-none focus:bg-white" />
+              <div className="grow-wrap">
+                <textarea
+                  className="bg-gray-200 text-gray-700 p-2 focus:outline-none focus:bg-white"
+                  onInput={(event) => {
+                    event.currentTarget.parentElement.dataset.replicatedValue =
+                      event.currentTarget.value;
+                  }}
+                />
+              </div>
             </td>
           </tr>
         </tbody>
